@@ -44,7 +44,7 @@ int main(){
     float f = 15.5f;
     double d = 344443434443.98494398484;
     long double ld = 89438949849843984.3498498498439843984398;
-    
+
 
   cout << "size of char => "; cout << sizeof(char); cout << " Bytes"; cout << endl;
 
@@ -55,7 +55,7 @@ int main(){
   cout << "size of double => "; cout << sizeof(double);  cout << " Bytes"; cout << endl;
 
   cout << "size of long double => "; cout << sizeof(long double);  cout << " Bytes"; cout << endl;
-  
+
 }
 ```
 
@@ -81,7 +81,7 @@ int main(){
     float f = 15.5f;
     double d = 344443434443.98494398484;
     long double ld = 89438949849843984.3498498498439843984398;
-    
+
 
   cout << "value of char => "; cout << c; cout << endl;
 
@@ -92,7 +92,7 @@ int main(){
   cout << "value of double => "; cout << d; cout << endl;
 
   cout << "value of long double => "; cout << ld; cout << endl;
-  
+
 }
 ```
 
@@ -105,5 +105,49 @@ value of float => 15.5
 value of double => 3.44443e+11
 value of long double => 8.94389e+16
 ```
+**Now let's move on to `functions`**
+
+- `functions` Are jus a block of instructions.
+- Once you find yourself reptaing the same code here where `functions`
+    come from, It used to to call same instructions each time with
+    diffrent `data`.
+- Functions syntax in `C++`,
+- `dataType functionsName(argument1, argument2, ...){
+-     //your instructions here
+- }`
+
+```c++
+//Example:
+#include <iostream>
+
+int getSum(int a, int b){
+  return(a + b);
+}
+
+int main(){
+  using namespace std;
+
+  cout << getSum(5, 5); cout << endl;
+  cout << getSum(5, 10); cout << endl;
+  cout << getSum(5, 15); cout << endl;
+
+}
+```
+```Shell
+Output:
+10
+15
+20
+```
+
+
+
+
+
+
+
+
+
+
 
 

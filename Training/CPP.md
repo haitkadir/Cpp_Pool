@@ -112,9 +112,15 @@ value of long double => 8.94389e+16
     come from, It used to to call same instructions each time with
     diffrent `data`.
 - Functions syntax in `C++`,
-- `dataType functionsName(argument1, argument2, ...){
+-
+```
+- dataType functionsName(argument1, argument2, ...){
 -     //your instructions here
-- }`
+- }
+```
+- `dataType` Could be any of `c++` data types `char int float double, etc`
+- but if you spicifide one of this data types then you should return return a value with that data type.
+- You can also spicifie `void` which means nothing you won't return a value.
 
 ```c++
 //Example:
@@ -124,6 +130,12 @@ int getSum(int a, int b){
   return(a + b);
 }
 
+void log(char *message){
+  using namespace std;
+
+  cout << message; cout << endl;
+}
+
 int main(){
   using namespace std;
 
@@ -131,6 +143,8 @@ int main(){
   cout << getSum(5, 10); cout << endl;
   cout << getSum(5, 15); cout << endl;
 
+  log("Message one");
+  log("Message tow");
 }
 ```
 ```Shell

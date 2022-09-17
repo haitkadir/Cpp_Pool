@@ -154,6 +154,127 @@ Output:
 20
 ```
 
+**if stetments**
+
+- syntax
+```C++
+if (condition){
+    //your code
+} else if (condition){
+    //your code
+} else {
+    //your code
+}
+```
+- For example you can check if variable `x` equal `5`,
+- if it's true then the first code will be excuted,
+- else it will move on to next if condition,
+- if it's not true it will move on to the last `else`,
+- it dosn't have any condition so it's always true.
+-
+- That's it.
+
+**Loop**
+
+- Loops are just keep repeating some thing while a condition equal true.
+- Syntax:
+```C++
+while (condition){
+    //your code
+}
+```
+
+```C++
+//Example:
+
+int i = 0;
+while (i < 10){
+    cout << i; cout << endl;
+    i++;
+}
+
+//Output:
+// 0
+// 1
+// .
+// .
+// 9
+```
+- It prints degits from 1 to 9
+
+** Now let's juming to `pointers` **
+
+- `pointer` Are just variables that stors the adress of the other variables
+- for example if we decleare `int x = 5` and then,
+- we create a pointer `int *ptr` not to store the adress of the `x` variable,
+- in this pointer w'll just asign `x` to ptr with `&` to get its adress.
+- Example:
+```C++
+int x = 5;
+
+int *ptr = &x;
+```
+- Now if we print ptr we w'll find the address of `x` variable.
+```C++
+cout << ptr;
+// Output: 0xffe9e4....
+```
+- And to print the value of the `x` variable we just add `*`,
+- before the ptr name.
+- Example:
+```C++
+cout << *ptr;
+```
+**Reference**
+- `references` Are just a ***Syntactic sugar*** of `pointers`
+- Example:
+```c++
+//using pointers
+
+void Increment(int *ptr){
+  (*ptr)++;
+}
+
+int main(){
+  int var = 5;
+  Increment(&var);
+  cout << var; cout << endl;// Output: 6
+}
+```
+
+```c++
+//using using references
+
+void Increment(int& ref){
+  ptr++;
+}
+
+int main(){
+  int var = 5;
+  Increment(var);
+  cout << var; cout << endl;// Output: 6
+}
+```
+
+- It's the same as `pointers` exept syntax.
+- In `references` you don't need to pass the address you just asign the variable to the `reference`.
+- Also in derefrencing `pointers` you have to add `*` to modifie the value of that var that pointing to,
+- but in `references` you asign new value to the reference itself and that's all.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

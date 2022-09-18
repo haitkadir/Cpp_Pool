@@ -1,6 +1,6 @@
 # CPP PooL
 
-### After spending about 8 month in learnign and building projects using `C`,
+### After spending about 8 months in learning and building projects using `C`,
 ### now it's time to switch a little bit so the nearest one is `C++`.
 
 
@@ -178,7 +178,9 @@ if (condition){
 
 - Loops are just keep repeating some thing while a condition equal true.
 - Syntax:
+
 ```C++
+
 while (condition){
     //your code
 }
@@ -199,10 +201,13 @@ while (i < 10){
 // .
 // .
 // 9
-```
-- It prints degits from 1 to 9
 
-** Now let's juming to `pointers` **
+```
+
+- It prints degits from 1 to 9.
+
+
+**Now let's juming to `pointers`**
 
 - `pointer` Are just variables that stors the adress of the other variables
 - for example if we decleare `int x = 5` and then,
@@ -226,6 +231,7 @@ cout << ptr;
 cout << *ptr;
 ```
 **Reference**
+
 - `references` Are just a ***Syntactic sugar*** of `pointers`
 - Example:
 ```c++
@@ -261,8 +267,78 @@ int main(){
 - Also in derefrencing `pointers` you have to add `*` to modifie the value of that var that pointing to,
 - but in `references` you asign new value to the reference itself and that's all.
 
+**Classes or OOP**
+
+Classes are just objects that can contain all methods (e,g. functions) variables of your logic\
+Example: let's say we're developing a game so that  game has a player and that player has x and y variables\
+and a Method called Move to that updates player position each time we press a button.\
+Without `classes` we'll create x and y varables in main function for example and then we'll create Move function\
+in somewhere else that's annoying isn't it\
+So with `classes` we'll just create one object and we'll declare all variables and Methods that'll move update...etc\
+all between our `class` brackets `{}`\
+Example:
+
+```c++
+class Player{
+public:
+  int x = 5;
+  int y = 6;
+
+  void Move(int xa, int ya){
+    x += xa;
+    y += ya;
+  }
+};
 
 
+using namespace std;
+int main(){
+  Player player;
+
+  cout << player.x << endl;
+  cout << player.y << endl;
+  player.Move(10, 6);
+  cout << player.x << endl;
+  cout << player.y << endl;
+}
+```
+
+Now let's explain this block of code\
+`class` is a keyword used to declare out type/class it's like when we use `int` for example to declare our integer variable\
+`public` is and optinal keyword used to make this variables access able publicly/outsite of the object cuz by defult they're privite\
+`void Move()` is just a function that takes input and updates x and y variables when we call it\
+Just to keep in mind variables in all programming languages are case sensitive so that `Player` not equal `player`\
+`Player player` we just declare our type here and we called it `player`\
+To print one of our player variables `cout << player.x << endl;` or `player.y` to access y variable\
+Now to move our player we alrady declared a method called `Move` and it takes x and y\
+We'll just call it by typing `player.Move(10, 6)` and we'll pass how many pixels we want that player to move in x and y
+
+Output:
+```Shell
+5
+6
+15
+12
+```
+
+**`Structs`**
+
+Structs are used to group variables\
+and it's by default public means we can access structs variable outside of the struct\
+
+```c++
+struct data {
+  int someDate;
+  char someOtherData;
+};
+```
+**The one tichnical diffrence between `Structs` and `Classes` is**
+- `Structs` are public by default means I can access its variables outside of the `struct`
+- *verses versa* `Classes` are privite by defult means only functios inside the `class` scope can access and update the variables\
+
+**But the best practice is**
+- `structs` are made to group variables
+- and `Classes` made to contain variables methods and all your logic for that specific `object`\
 
 
 

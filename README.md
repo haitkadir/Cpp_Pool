@@ -324,7 +324,7 @@ Output:
 **`Structs`**
 
 Structs are used to group variables\
-and it's by default public means we can access structs variable outside of the struct\
+and it's by default public means we can access structs variable outside of the struct
 
 ```c++
 struct data {
@@ -334,11 +334,11 @@ struct data {
 ```
 **The one tichnical diffrence between `Structs` and `Classes` is**
 - `Structs` are public by default means I can access its variables outside of the `struct`
-- *verses versa* `Classes` are privite by defult means only functios inside the `class` scope can access and update the variables\
+- *verses versa* `Classes` are privite by defult means only functios inside the `class` scope can access and update the variables
 
 **But the best practice is**
 - `structs` are made to group variables
-- and `Classes` made to contain variables methods and all your logic for that specific `object`\
+- and `Classes` made to contain variables methods and all your logic for that specific `object`
 
 
 

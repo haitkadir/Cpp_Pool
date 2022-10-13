@@ -1,7 +1,7 @@
 # CPP PooL
 
 ### After spending about 8 months in learning and building projects using `C`,
-### now it's time to switch a little bit so the nearest one is `C++`.
+### now it's time to switch a little bit so the closest one is `C++`.
 
 
 - Today I leant simple `C++` syntax and created my first `C++` program,
@@ -340,6 +340,9 @@ struct data {
 - `structs` are made to group variables
 - and `Classes` made to contain variables methods and all your logic for that specific `object`
 
+## Resurces
+
+`https://pabloariasal.github.io/2017/06/10/understanding-virtual-tables/`
 
 
 

@@ -2,10 +2,10 @@
 CC = g++
 CFLAGS = -Wall -Wextra -Werror
 CPP_VERSION = -std=c++98
-NAME = megaphone
+NAME = phonebook
 
 
-SRCS = megaphone.cpp
+SRCS = phonebook.cpp main.cpp
 OBJS = $(SRCS:%.cpp=%.o)
 
 NAME: $(OBJS)
@@ -15,7 +15,7 @@ NAME: $(OBJS)
 all: $(NAME)
 
 
-%.o: $(SRCS)
+%.o: $(SRCS) phonebook.hpp
 	@$(CC) $(CFLAGS) $(CPP_VERSION) -o $@ -c $<
 
 clean:

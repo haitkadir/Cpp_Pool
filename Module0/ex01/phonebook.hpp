@@ -6,11 +6,10 @@
 
 class PhoneBook{
   Contact contacts[8];
-  int     conLength;
+  int     contactsLen;
 
 public:
-  void  setConLength(int value);
-  int   getConLength();
+  void  setcontactsLen(int index);
   void  Add();
   void  Search();
 

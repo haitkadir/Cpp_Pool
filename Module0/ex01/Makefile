@@ -15,14 +15,14 @@ OBJS = $(SRCS:%.cpp=%.o)
 
 NAME: $(OBJS)
 	@$(CC) $(CFLAGS) $(CPP_VERSION) $(OBJS) -o $(NAME)
-	@echo "Compiled"
+	@echo "Compiled\n"
 
 all: $(NAME)
 
 
 %.o:%.c $(SRCS)
 	@$(CC) $(CFLAGS) $(CPP_VERSION) -c $< -o $@
-	@echo "Object created"
+	@echo "Object created\n"
 
 clean:
 	@rm -f $(OBJS)

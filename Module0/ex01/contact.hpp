@@ -8,18 +8,14 @@ class Contact{
   std::string   firstName;
   std::string   lastName;
   std::string   nickName;
-  long          phoneNumber;
+  std::string   phoneNumber;
   std::string   darkestSecret;
 public:
-  void          setFirstName(std::string value);
+  void          setData(std::string value, int id);
   std::string   getFirstName();
-  void          setLastName(std::string value);
   std::string   getLastName();
-  void          setNickName(std::string value);
   std::string   getNickName();
-  void          setPhoneNumber(long value);
-  long          getPhoneNumber();
-  void          setDarkestSecret(std::string value);
+  std::string   getPhoneNumber();
   std::string   getDarkestSecret();
 };
 

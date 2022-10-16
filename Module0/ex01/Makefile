@@ -1,11 +1,16 @@
 .PHONY: all clean fclean re
+
 CC = g++
+
 CFLAGS = -Wall -Wextra -Werror
+
 CPP_VERSION = -std=c++98
+
 NAME = phonebook
 
 
-SRCS = phonebook.cpp main.cpp
+SRCS = main.cpp contact.cpp phonebook.cpp
+
 OBJS = $(SRCS:%.cpp=%.o)
 
 NAME: $(OBJS)
@@ -15,8 +20,9 @@ NAME: $(OBJS)
 all: $(NAME)
 
 
-%.o: $(SRCS) phonebook.hpp
-	@$(CC) $(CFLAGS) $(CPP_VERSION) -o $@ -c $<
+%.o:%.c $(SRCS)
+	@$(CC) $(CFLAGS) $(CPP_VERSION) -c $< -o $@
+	@echo "Object created"
 
 clean:
 	@rm -f $(OBJS)
@@ -24,4 +30,5 @@ clean:
 fclean: clean
 	@rm -f $(NAME)
 	clear
+
 re: fclean all

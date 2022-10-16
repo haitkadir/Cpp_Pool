@@ -1,25 +1,19 @@
 #ifndef PHONEBOOK_H
-# define PHONEBOOK_H
-
-class Contact{
-    char    *firstName;
-    char    *lastName;
-    char    *nickName;
-    long    phoneNumber;
-    char    *darkestSecret;
-};
+#define PHONEBOOK_H
+#include <iostream>
+#include <string>
+#include "contact.hpp"
 
 class PhoneBook{
-    Contact contacts;
-    int     fillFields;
+  Contact contacts[8];
+  int     conLength;
 
-    public:
-        void Add(){
-            fillFields = 4;
-        };
-        void Search();
-        void Exit();
+public:
+  void  setConLength(int value);
+  int   getConLength();
+  void  Add();
+  void  Search();
+
 };
-
 
 #endif

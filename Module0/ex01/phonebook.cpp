@@ -1,6 +1,11 @@
 #include "phonebook.hpp"
 
 
-void Add(){
-    firstName = "first";
-}
+  void  PhoneBook::setConLength(int value){
+    conLength = value;
+  }
+  int   PhoneBook::getConLength(){
+    return conLength;
+  }
+  //void  Add();
+  //void  Search;

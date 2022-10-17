@@ -1,5 +1,6 @@
 #include "contact.hpp"
 
+/*---------------------------------------------------------------------------------------*/
 
 void    Contact::setData(std::string value, int id){
   switch (id)
@@ -24,22 +25,34 @@ void    Contact::setData(std::string value, int id){
   }
 }
 
+/*---------------------------------------------------------------------------------------*/
+
 std::string  Contact::getFirstName(){
   return this->firstName;
 }
+
+/*---------------------------------------------------------------------------------------*/
 
 std::string  Contact::getLastName(){
   return this->lastName;
 }
 
+/*---------------------------------------------------------------------------------------*/
+
 std::string  Contact::getNickName(){
   return this->nickName;
 }
+
+/*---------------------------------------------------------------------------------------*/
 
 std::string    Contact::getPhoneNumber(){
   return this->phoneNumber;
 }
 
+/*---------------------------------------------------------------------------------------*/
+
 std::string  Contact::getDarkestSecret(){
   return this->darkestSecret;
 }
+
+/*---------------------------------------------------------------------------------------*/

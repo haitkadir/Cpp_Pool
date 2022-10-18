@@ -15,7 +15,7 @@ NAME: $(OBJS)
 all: $(NAME)
 
 
-%.o: $(SRCS)
+%.o:%.c $(SRCS)
 	@$(CC) $(CFLAGS) $(CPP_VERSION) -o $@ -c $<
 
 clean:
@@ -24,4 +24,5 @@ clean:
 fclean: clean
 	@rm -f $(NAME)
 	clear
+
 re: fclean all

@@ -24,10 +24,9 @@ int main(){
          exit(EXIT_SUCCESS);
       else if(buffer.compare("-h") == 0)
         std::cout << "\033[0;32m Avilable Commands are: ADD, SEARCH and EXIT\033[0m" << std::endl;
-      else{
+      else if (!buffer.empty()){
          std::cout << "\033[0;33mUknown Command use \"-h\" for help\033[0m" << std::endl;
       }
   }
-  return 0;
+  exit(EXIT_SUCCESS);
 }
-

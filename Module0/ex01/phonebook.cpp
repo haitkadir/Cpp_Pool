@@ -21,13 +21,12 @@ void PhoneBook::Add()
 	fields[2] = "Nick Name:";
 	fields[3] = "Phone Number:";
 	fields[4] = "Darkest Secret:";
-	if (this->contactsLen == 8)
-		this->contactsLen--;
 	i = 0;
-	while (i < 5)
+	while(i < 5)
 	{
 		system("clear");
 		std::cout << "\033[1;32m" << fields[i] << "\033[0m ";
+		buffer.clear();
 		getline(std::cin, buffer);
 		if (std::cin.eof())
         	exit(EXIT_SUCCESS);
@@ -36,7 +35,8 @@ void PhoneBook::Add()
 			std::cout << "\033[1;31mEmpty field!\033[0m" << std::endl;
 			continue;
 		}
-		this->contacts[this->contactsLen].setData(buffer, i);
+		this->contacts[this->contactsLen % MAX_CONTACTS].setData(buffer, i);
+		std::cin.clear();
 		i++;
 	}
 	this->contactsLen++;
@@ -44,51 +44,29 @@ void PhoneBook::Add()
 
 /*---------------------------------------------------------------------------------------*/
 
-static std::string truncStr(std::string str){
-	if (str.length() > 10){
-		str.resize(9);
-		return str.append(".");
+static	bool	isNumeric(std::string str)
+{
+	for (int i = 0; i < str.length(); i++){
+		if (!(std::isdigit(str[i])))
+			return false;
 	}
-	return str;
-}
-
-/*---------------------------------------------------------------------------------------*/
-
-static void	printContactInCols(std::string index, std::string firstName, std::string lastName, std::string nickName){
-	std::cout << "\033[1;32m                   Contact" << std::endl;
-	std::cout << "---------------------------------------------" << std::endl;
-	std::cout << "|Index     |First Name|Last Name |Nick Name |" << std::endl;
-	std::cout << "---------------------------------------------" << std::endl;
-	std::cout << "|" << std::setw(10) << truncStr(index) << "|" << std::setw(10) \
-		<< truncStr(firstName) << "|" << std::setw(10) << truncStr(lastName) << "|" \
-		<< std::setw(10) << truncStr(nickName) <<"|" << std::endl;
-	std::cout << "---------------------------------------------" << std::endl;
-	std::cout << "\033[0m" << std::endl;
-}
-
-/*---------------------------------------------------------------------------------------*/
-
-static void	printContactInRows(std::string index, std::string firstName, std::string lastName, std::string nickName){
-	std::cout << "\033[1;32m       Contact" << std::endl;
-	std::cout << "-----------------------" << std::endl;
-	std::cout << "|Index     |" << std::setw(10) << truncStr(index) << "|" << std::endl;
-	std::cout << "-----------------------" << std::endl;
-	std::cout << "|First Name|" << std::setw(10) << truncStr(firstName) << "|" << std::endl;
-	std::cout << "-----------------------" << std::endl;
-	std::cout << "|Last Name |" << std::setw(10) << truncStr(lastName) << "|" << std::endl;
-	std::cout << "-----------------------" << std::endl;
-	std::cout << "|Nick Name |" << std::setw(10) << truncStr(nickName) <<"|" << std::endl;
-	std::cout << "-----------------------" << std::endl;
-	std::cout << "\033[0m" << std::endl;
+    return true;
 }
 
 /*---------------------------------------------------------------------------------------*/
 
 void  PhoneBook::Search(){
-	int maxIndex;
-	int	index;
+	int			maxIndex;
+	std::string buffer;
+	int			index;
 
 	maxIndex = this->contactsLen;
+	if (maxIndex > MAX_CONTACTS)
+		maxIndex = MAX_CONTACTS;
+	if (maxIndex <= 0){
+		std::cout << "\033[0;33mNo contacts found" << std::endl;
+		return;
+	}
 	for(int i = 0; i < maxIndex; i++){
 		printContactInCols(std::to_string(i + 1), this->contacts[i].getFirstName(), \
 				this->contacts[i].getLastName(), this->contacts[i].getNickName());
@@ -96,16 +74,23 @@ void  PhoneBook::Search(){
 	while(true){
 		index = -1;
 		std::cout << "\033[1;35mEnter contact index:\033[0m ";
-		if (!(std::cin >> index)){
+		getline(std::cin, buffer);
+		std::stringstream	temp(buffer);
+		temp >> index;
+		if (buffer.empty()){
 			break;
 		}else if (std::cin.eof())
         	exit(EXIT_SUCCESS);
-		if (index > 0 && index <= this->contactsLen){
+		if (!isNumeric(buffer))
+			std::cout << "\033[0;33mOnly digits accepted!" << "\033[0m" << std::endl;
+		else if (index > 0 && index <= this->contactsLen){
 			printContactInRows(std::to_string(index), this->contacts[index - 1].getFirstName(), \
-				this->contacts[index - 1].getLastName(), this->contacts[index - 1].getNickName());
-		}else{
+				this->contacts[index - 1].getLastName(), this->contacts[index - 1].getNickName(), \
+				this->contacts[index - 1].getPhoneNumber(), this->contacts[index - 1].getDarkestSecret());
+			break;
+		}else
 			std::cout << "\033[0;33mCan't find a Contact with index: " << index << "\033[0m" << std::endl;
-		}
+		std::cin.clear();
 	}
 }
 

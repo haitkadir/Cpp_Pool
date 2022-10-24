@@ -18,12 +18,12 @@ CFLAGS = -Wall -Wextra -Werror
 
 CPP_VERSION = -std=c++98
 
-NAME = phonebook
+NAME = account
 
 
-SRCS = main.cpp contact.cpp phonebook.cpp output_data.cpp
+SRCS = Account.cpp tests.cpp
 
-HEADERS = phonebook.hpp contact.hpp
+HEADERS = Account.hpp
 
 OBJS = $(SRCS:%.cpp=%.o)
 

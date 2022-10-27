@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: haitkadi <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: haitkadi <haitkadi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/10/18 19:13:32 by haitkadi          #+#    #+#              #
-#    Updated: 2022/10/18 19:13:34 by haitkadi         ###   ########.fr        #
+#    Created: 2022/10/26 16:40:49 by haitkadi          #+#    #+#              #
+#    Updated: 2022/10/27 11:00:32 by haitkadi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,23 +18,24 @@ CFLAGS = -Wall -Wextra -Werror
 
 CPP_VERSION = -std=c++98
 
-NAME = phonebook
+NAME = war
 
 
-SRCS = main.cpp contact.cpp phonebook.cpp output_data.cpp
+SRCS = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
 
-HEADERS = phonebook.hpp contact.hpp
+HEADERS = Weapon.hpp HumanA.hpp HumanB.hpp
 
 OBJS = $(SRCS:%.cpp=%.o)
 
-$(NAME): $(OBJS) $(HEADERS)
+$(NAME): $(OBJS)
 	@$(CC) $(CFLAGS) $(CPP_VERSION) $(OBJS) -o $(NAME)
-	@echo "Compiled\n"
+	@echo "Compiled!. Use\033[0;32m ./$(NAME)\033[0m\n"
 
 all: $(NAME)
 
-%.o:%.c $(SRCS)
-	$(CC) $(CFLAGS) $(CPP_VERSION) -c $< -o $@
+%.o:%.cpp $(SRCS) $(HEADERS)
+	@$(CC) $(CFLAGS) $(CPP_VERSION) -c $< -o $@
+	@echo "$< ==> $@"
 
 clean:
 	@rm -f $(OBJS)

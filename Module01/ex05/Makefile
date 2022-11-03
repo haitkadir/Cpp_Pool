@@ -5,25 +5,25 @@
 #                                                     +:+ +:+         +:+      #
 #    By: haitkadi <haitkadi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/11/01 13:49:14 by haitkadi          #+#    #+#              #
-#    Updated: 2022/11/01 13:49:15 by haitkadi         ###   ########.fr        #
+#    Created: 2022/11/03 11:59:12 by haitkadi          #+#    #+#              #
+#    Updated: 2022/11/03 11:59:13 by haitkadi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 .PHONY: all clean fclean re
 
-CC = g++
+CC = c++
 
 CFLAGS = -Wall -Wextra -Werror
 
 CPP_VERSION = -std=c++98
 
-NAME = sed
+NAME = harl
 
 
-SRCS = main.cpp sed.cpp
+SRCS = main.cpp Harl.cpp
 
-HEADERS = sed.hpp
+HEADERS = Harl.hpp
 
 OBJS = $(SRCS:%.cpp=%.o)
 

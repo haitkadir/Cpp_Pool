@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sed.hpp                                            :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: haitkadi <haitkadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/01 13:49:21 by haitkadi          #+#    #+#             */
-/*   Updated: 2022/11/01 13:49:22 by haitkadi         ###   ########.fr       */
+/*   Created: 2022/11/03 13:58:34 by haitkadi          #+#    #+#             */
+/*   Updated: 2022/11/03 13:58:42 by haitkadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __SED_H__
-#define __SED_H__
-#include <iostream>
-#include <fstream>
-#include <sstream>
+#include "Harl.hpp"
 
-/*------------------------------------ sed.cpp --------------------------------------*/
-void searchAndReplace(std::string fileName, std::string oldKeyword, std::string newKeyword);
-
-#endif
+int main(int ac, char **av){
+    Harl    harl;
+    if(ac == 2){
+        harl.complain(av[1]);
+    }else {
+        std::cout << "It Takes one argument: ./harlFilter arg" << std::endl;
+    }
+    return 0;
+}

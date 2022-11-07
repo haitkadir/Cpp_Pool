@@ -6,7 +6,7 @@
 /*   By: haitkadi <haitkadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 11:59:01 by haitkadi          #+#    #+#             */
-/*   Updated: 2022/11/03 11:59:02 by haitkadi         ###   ########.fr       */
+/*   Updated: 2022/11/03 17:54:12 by haitkadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,6 @@
 int main(void){
     Harl    harl;
 
-    harl.complain("ERROR");
+    harl.complain("DEBUG");
     return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: haitkadi <haitkadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 14:57:36 by haitkadi          #+#    #+#             */
-/*   Updated: 2022/10/26 14:57:37 by haitkadi         ###   ########.fr       */
+/*   Updated: 2022/11/03 17:25:08 by haitkadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ class Zombie
 private:
     std::string name;
 public:
-    Zombie() {};
     void    announce(void);
     void    setName(std::string Name);
     ~Zombie();

@@ -3,15 +3,15 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: haitkadi <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: haitkadi <haitkadi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 19:11:50 by haitkadi          #+#    #+#              #
-#    Updated: 2022/10/18 19:11:52 by haitkadi         ###   ########.fr        #
+#    Updated: 2022/11/03 17:22:59 by haitkadi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 .PHONY: all clean fclean re
-CC = g++
+CC = c++
 CFLAGS = -Wall -Wextra -Werror
 CPP_VERSION = -std=c++98
 NAME = megaphone

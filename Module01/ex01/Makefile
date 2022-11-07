@@ -6,13 +6,13 @@
 #    By: haitkadi <haitkadi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/26 14:57:22 by haitkadi          #+#    #+#              #
-#    Updated: 2022/10/26 15:15:51 by haitkadi         ###   ########.fr        #
+#    Updated: 2022/11/03 17:22:59 by haitkadi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 .PHONY: all clean fclean re
 
-CC = g++
+CC = c++
 
 CFLAGS = -Wall -Wextra -Werror
 

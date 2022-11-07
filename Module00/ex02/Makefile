@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: haitkadi <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: haitkadi <haitkadi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 19:13:32 by haitkadi          #+#    #+#              #
-#    Updated: 2022/10/18 19:13:34 by haitkadi         ###   ########.fr        #
+#    Updated: 2022/11/03 17:22:59 by haitkadi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 .PHONY: all clean fclean re
 
-CC = g++
+CC = c++
 
 CFLAGS = -Wall -Wextra -Werror
 

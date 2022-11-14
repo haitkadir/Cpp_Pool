@@ -6,7 +6,7 @@
 /*   By: haitkadi <haitkadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 03:56:04 by haitkadi          #+#    #+#             */
-/*   Updated: 2022/11/14 04:59:06 by haitkadi         ###   ########.fr       */
+/*   Updated: 2022/11/14 20:13:35 by haitkadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -166,11 +166,22 @@ Fixed  Fixed::operator -- (int){
 Fixed & Fixed::min(Fixed &obj1, Fixed &obj2){
     return obj1.getRawBits() < obj2.getRawBits() ? obj1 : obj2;
 }
-/*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
+/*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 Fixed & Fixed::min(const Fixed &obj1, const Fixed &obj2){
     return obj1.getRawBits() < obj2.getRawBits() ? \
         const_cast<Fixed&>(obj1) : const_cast<Fixed&>(obj1);
+}
+
+/*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+Fixed & Fixed::max(Fixed &obj1, Fixed &obj2){
+    return obj1.getRawBits() > obj2.getRawBits() ? obj1 : obj2;
+}
+
+/*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+Fixed & Fixed::max(const Fixed &obj1, const Fixed &obj2){
+    return obj1.getRawBits() > obj2.getRawBits() ? \
+        const_cast<Fixed&>(obj1) : const_cast<Fixed&>(obj2);
 }
 
 /*----------------------------------------------------------------------------*/

@@ -6,7 +6,7 @@
 /*   By: haitkadi <haitkadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 04:09:04 by haitkadi          #+#    #+#             */
-/*   Updated: 2022/11/14 04:48:52 by haitkadi         ###   ########.fr       */
+/*   Updated: 2022/11/14 20:07:39 by haitkadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ public:
 /*----------------------------------------------------------------------------*/
     static Fixed & min(Fixed &obj1, Fixed &obj2);
     static Fixed & min(const Fixed &obj1, const Fixed &obj2);
+    static Fixed & max(Fixed &obj1, Fixed &obj2);
+    static Fixed & max(const Fixed &obj1, const Fixed &obj2);
 
 /*-------------------------- Copy assignment operator ------------------------*/
     Fixed & operator = (const Fixed &a);

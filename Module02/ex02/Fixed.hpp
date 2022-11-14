@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: haitkadi <haitkadi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/14 04:09:04 by haitkadi          #+#    #+#             */
+/*   Updated: 2022/11/14 04:48:52 by haitkadi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef __FIXED_H__
 #define __FIXED_H__
 #include <iostream>
@@ -16,7 +28,9 @@ public:
     int getRawBits( void ) const;
     float toFloat( void ) const;
     int toInt( void ) const;
-/*----------------------- Operators overloading ----------------------------*/
+/*----------------------------------------------------------------------------*/
+/*                           Operators overloading                            */
+/*----------------------------------------------------------------------------*/
     bool operator > (const Fixed &a)const;
     bool operator < (const Fixed &a)const;
     bool operator >= (const Fixed &a)const;
@@ -24,14 +38,25 @@ public:
     bool operator == (const Fixed &a)const;
     bool operator != (const Fixed &a)const;
     // Arithmatic operators
-
     Fixed & operator + (const Fixed &a);
+    Fixed & operator - (const Fixed &a);
     Fixed & operator * (const Fixed &a);
     Fixed & operator / (const Fixed &a);
-    // Copy assignment operator
+    // post and pre increment operators overloading
+    Fixed & operator ++ ();
+    Fixed & operator -- ();
+    Fixed   operator ++ (int);
+    Fixed   operator -- (int);
+/*----------------------------------------------------------------------------*/
+/*                               Static members                               */
+/*----------------------------------------------------------------------------*/
+    static Fixed & min(Fixed &obj1, Fixed &obj2);
+    static Fixed & min(const Fixed &obj1, const Fixed &obj2);
+
+/*-------------------------- Copy assignment operator ------------------------*/
     Fixed & operator = (const Fixed &a);
 
-/*-------------------------------- Destructor ------------------------------*/
+/*---------------------------------- Destructor ------------------------------*/
     ~Fixed ();
 };
 

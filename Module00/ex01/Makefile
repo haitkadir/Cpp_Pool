@@ -6,13 +6,13 @@
 #    By: haitkadi <haitkadi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 19:13:32 by haitkadi          #+#    #+#              #
-#    Updated: 2022/11/03 17:22:59 by haitkadi         ###   ########.fr        #
+#    Updated: 2022/11/13 21:14:49 by haitkadi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 .PHONY: all clean fclean re
 
-CC = c++
+CC = g++
 
 CFLAGS = -Wall -Wextra -Werror
 
@@ -33,7 +33,7 @@ $(NAME): $(OBJS)
 
 all: $(NAME)
 
-%.o:%.cpp $(SRCS) $(HEADERS)
+%.o:%.cpp $(SRCS)  $(HEADERS)
 	$(CC) $(CFLAGS) $(CPP_VERSION) -c $< -o $@
 
 clean:

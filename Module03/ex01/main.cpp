@@ -1,30 +1,26 @@
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main(void){
-    ClapTrap hssain("Hssain");
-    ClapTrap enemy("Enemy");
+    ScavTrap hssain("Hssain");
+    ScavTrap enemy("Enemy");
 
     enemy.attack("Hssain");
-    hssain.takeDamage(1);
+    hssain.takeDamage(21);
     enemy.attack("Hssain");
-    hssain.takeDamage(2);
+    hssain.takeDamage(22);
     enemy.attack("Hssain");
-    hssain.takeDamage(3);
+    hssain.takeDamage(23);
     enemy.attack("Hssain");
-    hssain.takeDamage(4);
-    //hssain tried to attack back
-    hssain.attack("Enemy");
+    hssain.takeDamage(24);
 
-    hssain.beRepaired(6);
+    enemy.beRepaired(6);
 
     hssain.attack("Enemy");
-    enemy.takeDamage(1);
+    enemy.takeDamage(21);
     hssain.attack("Enemy");
-    enemy.takeDamage(2);
-    hssain.attack("Enemy");
-    enemy.takeDamage(3);
-    hssain.attack("Enemy");
-    enemy.takeDamage(4);
+    enemy.takeDamage(22);
+
+    hssain.guardGate();
 
     return 0;
 }

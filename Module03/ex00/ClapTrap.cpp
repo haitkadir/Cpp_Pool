@@ -6,7 +6,7 @@
 /*   By: haitkadi <haitkadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 22:00:38 by haitkadi          #+#    #+#             */
-/*   Updated: 2022/11/16 06:13:20 by haitkadi         ###   ########.fr       */
+/*   Updated: 2022/11/18 03:04:59 by haitkadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 ClapTrap::ClapTrap (){
-    std::cout << "Default constructor called!" << std::endl;
+    std::cout << "Default constructor of ClapTrap called!" << std::endl;
     this->m_name = "";
-    this->m_HitPoints = 0;
-    this->m_EnergyPoints = 0;
+    this->m_HitPoints = 10;
+    this->m_EnergyPoints = 10;
     this->m_AttackDamage = 0;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 ClapTrap::ClapTrap (std::string name){
-    std::cout << "Name constructor called!" << std::endl;
+    std::cout << "Name constructor of ClapTrap called!" << std::endl;
     this->m_name = name;
     this->m_HitPoints = 10;
     this->m_EnergyPoints = 10;
@@ -32,7 +32,7 @@ ClapTrap::ClapTrap (std::string name){
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 ClapTrap::ClapTrap (const ClapTrap &a){
-    std::cout << "Copy constructor called!" << std::endl;
+    std::cout << "Copy constructor of ClapTrap called!" << std::endl;
     this->m_name = a.m_name;
     this->m_HitPoints = a.m_HitPoints;
     this->m_EnergyPoints = a.m_EnergyPoints;
@@ -42,7 +42,7 @@ ClapTrap::ClapTrap (const ClapTrap &a){
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 ClapTrap & ClapTrap::operator = (const ClapTrap &a){
     if (this != &a){
-        std::cout << "Copy assignment operator called!" << std::endl;
+        std::cout << "Copy assignment operator of ClapTrap called!" << std::endl;
         this->m_name = a.m_name;
         this->m_HitPoints = a.m_HitPoints;
         this->m_EnergyPoints = a.m_EnergyPoints;
@@ -89,7 +89,7 @@ void ClapTrap::beRepaired(unsigned int amount){
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 ClapTrap::~ClapTrap (){
-    std::cout << "Object destroyed" << std::endl;
+    std::cout << "ClapTrap destroyed" << std::endl;
 }
 
 

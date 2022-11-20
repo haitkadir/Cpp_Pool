@@ -6,7 +6,7 @@
 /*   By: haitkadi <haitkadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 03:11:21 by haitkadi          #+#    #+#             */
-/*   Updated: 2022/11/18 05:01:02 by haitkadi         ###   ########.fr       */
+/*   Updated: 2022/11/20 15:45:37 by haitkadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,8 @@ ScavTrap & ScavTrap::operator = (const ScavTrap &a){
 
 /*----------------------------------------------------------------------------*/
 void ScavTrap::attack(const std::string& target){
-    if (this->m_HitPoints && this->m_EnergyPoints){
+    if (this->m_HitPoints > 0 && this->m_EnergyPoints > 0){
         this->m_EnergyPoints--;
-        this->m_AttackDamage++;
         std::cout << "ScavTrap "
         << this->m_name << " Attacks ︻デ═一  - "
         << target << ", causing "

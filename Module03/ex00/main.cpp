@@ -5,26 +5,26 @@ int main(void){
     ClapTrap enemy("Enemy");
 
     enemy.attack("Hssain");
-    hssain.takeDamage(1);
+    hssain.takeDamage(0);
     enemy.attack("Hssain");
-    hssain.takeDamage(2);
+    hssain.takeDamage(0);
     enemy.attack("Hssain");
-    hssain.takeDamage(3);
+    hssain.takeDamage(0);
     enemy.attack("Hssain");
-    hssain.takeDamage(4);
+    hssain.takeDamage(0);
     //hssain tried to attack back
     hssain.attack("Enemy");
 
     hssain.beRepaired(6);
 
     hssain.attack("Enemy");
-    enemy.takeDamage(1);
+    enemy.takeDamage(0);
     hssain.attack("Enemy");
-    enemy.takeDamage(2);
+    enemy.takeDamage(0);
     hssain.attack("Enemy");
-    enemy.takeDamage(3);
+    enemy.takeDamage(0);
     hssain.attack("Enemy");
-    enemy.takeDamage(4);
+    enemy.takeDamage(0);
 
     return 0;
 }

@@ -5,20 +5,20 @@ int main(void){
     ScavTrap enemy("Enemy");
 
     enemy.attack("Hssain");
-    hssain.takeDamage(21);
+    hssain.takeDamage(20);
     enemy.attack("Hssain");
-    hssain.takeDamage(22);
+    hssain.takeDamage(20);
     enemy.attack("Hssain");
-    hssain.takeDamage(23);
+    hssain.takeDamage(20);
     enemy.attack("Hssain");
-    hssain.takeDamage(24);
+    hssain.takeDamage(20);
 
     enemy.beRepaired(6);
 
     hssain.attack("Enemy");
-    enemy.takeDamage(21);
+    enemy.takeDamage(20);
     hssain.attack("Enemy");
-    enemy.takeDamage(22);
+    enemy.takeDamage(20);
 
     hssain.guardGate();
 

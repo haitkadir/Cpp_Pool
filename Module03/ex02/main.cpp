@@ -6,21 +6,21 @@ int main(void){
     FragTrap enemy("Enemy");
 
     hssain.attack("Enemy");
-    enemy.takeDamage(31);
+    enemy.takeDamage(30);
     hssain.attack("Enemy");
-    enemy.takeDamage(32);
+    enemy.takeDamage(30);
 
 
     enemy.beRepaired(100);
 
     enemy.attack("Hssain");
-    hssain.takeDamage(31);
+    hssain.takeDamage(30);
     enemy.attack("Hssain");
-    hssain.takeDamage(32);
+    hssain.takeDamage(30);
     enemy.attack("Hssain");
-    hssain.takeDamage(33);
+    hssain.takeDamage(30);
     enemy.attack("Hssain");
-    hssain.takeDamage(44);
+    hssain.takeDamage(30);
 
     enemy.highFivesGuys();
 

@@ -6,7 +6,7 @@
 /*   By: haitkadi <haitkadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 22:00:38 by haitkadi          #+#    #+#             */
-/*   Updated: 2022/11/18 03:04:59 by haitkadi         ###   ########.fr       */
+/*   Updated: 2022/11/20 15:52:01 by haitkadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,8 @@ ClapTrap & ClapTrap::operator = (const ClapTrap &a){
 }
 /*----------------------------------------------------------------------------*/
 void ClapTrap::attack(const std::string& target){
-    if (this->m_HitPoints && this->m_EnergyPoints){
+    if (this->m_HitPoints > 0 && this->m_EnergyPoints > 0){
         this->m_EnergyPoints--;
-        this->m_AttackDamage++;
         std::cout << "ClapTrap "
         << this->m_name << " Attacks ︻デ═一  - "
         << target << ", causing "
@@ -66,23 +65,15 @@ void ClapTrap::attack(const std::string& target){
     
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 void ClapTrap::takeDamage(unsigned int amount){
-    std::cout << this->m_name << " has taken " << amount << " point of damage!" << std::endl;
-    if (this->m_HitPoints && (unsigned int)this->m_HitPoints > amount)
-        this->m_HitPoints -= amount;
-    else
-        this->m_HitPoints = 0;
+    std::cout << this->m_name << " has taken " << amount << " points of damage!" << std::endl;
+     this->m_HitPoints -= amount;
 }
     
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 void ClapTrap::beRepaired(unsigned int amount){
-    if (this->m_EnergyPoints){
-        if (this->m_EnergyPoints)
-            this->m_EnergyPoints--;
-        if ((this->m_HitPoints + amount) < INT_MAX)
-            this->m_HitPoints += amount;
-        else
-            this->m_HitPoints = INT_MAX;
-            
+    if (this->m_EnergyPoints > 0 && this->m_HitPoints > 0){
+        this->m_EnergyPoints--;
+        this->m_HitPoints += amount;
         std::cout << this->m_name << " has repaired itself with "
         << amount << " of Health points!" << std::endl;
     }

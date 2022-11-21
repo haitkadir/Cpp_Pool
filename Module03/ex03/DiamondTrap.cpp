@@ -6,7 +6,7 @@
 /*   By: haitkadi <haitkadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 10:54:37 by haitkadi          #+#    #+#             */
-/*   Updated: 2022/11/20 15:23:42 by haitkadi         ###   ########.fr       */
+/*   Updated: 2022/11/20 16:40:47 by haitkadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ DiamondTrap::DiamondTrap ()
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
-DiamondTrap::DiamondTrap (const std::string& name) : ClapTrap(name + "_clap_name")
+DiamondTrap::DiamondTrap (const std::string& name) : ScavTrap(name + "_clap_name")
 {
     std::cout << "DiamondTrap: Name constructor called!" << std::endl;
     this->m_name = name;
@@ -35,6 +35,7 @@ DiamondTrap::DiamondTrap (const std::string& name) : ClapTrap(name + "_clap_name
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 DiamondTrap::DiamondTrap (const DiamondTrap &a){
     std::cout << "DiamondTrap: Copy constructor called!" << std::endl;
+    this->ClapTrap::m_name = a.ClapTrap::m_name;
     this->m_name = a.m_name;
     this->FragTrap::m_HitPoints = a.FragTrap::m_HitPoints;
     this->ScavTrap::m_EnergyPoints = a.ScavTrap::m_EnergyPoints;
@@ -45,6 +46,7 @@ DiamondTrap::DiamondTrap (const DiamondTrap &a){
 DiamondTrap & DiamondTrap::operator = (const DiamondTrap &a){
     if (this != &a){
         std::cout << "DiamondTrap: Copy assignment operator called!" << std::endl;
+        this->ClapTrap::m_name = a.ClapTrap::m_name;
         this->m_name = a.m_name;
         this->FragTrap::m_HitPoints = a.FragTrap::m_HitPoints;
         this->ScavTrap::m_EnergyPoints = a.ScavTrap::m_EnergyPoints;

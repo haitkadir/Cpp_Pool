@@ -10,7 +10,6 @@ int main(void){
     hssain.attack("Enemy");
     enemy.takeDamage(30);
 
-
     enemy.beRepaired(100);
 
     enemy.attack("Hssain");

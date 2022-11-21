@@ -2,7 +2,7 @@
 
 CC = c++
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -Wshadow
 
 CPP_VERSION = -std=c++98
 

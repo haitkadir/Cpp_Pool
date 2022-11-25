@@ -14,8 +14,7 @@ public:
     ShrubberyCreationForm (const std::string target);
     ShrubberyCreationForm (const ShrubberyCreationForm &a);
     ShrubberyCreationForm & operator = (const ShrubberyCreationForm &a);
-    ~ShrubberyCreationForm ();
-    // overide excution method
+    ~ShrubberyCreationForm (); 
     void    execute(Bureaucrat const & executor) const;
 };
 

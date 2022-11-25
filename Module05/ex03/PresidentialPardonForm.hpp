@@ -13,8 +13,7 @@ public:
     PresidentialPardonForm (const std::string target);
     PresidentialPardonForm (const PresidentialPardonForm &a);
     PresidentialPardonForm & operator = (const PresidentialPardonForm &a);
-    ~PresidentialPardonForm ();
-    // overide excution method
+    ~PresidentialPardonForm (); 
     void    execute(Bureaucrat const & executor) const;
 };
 

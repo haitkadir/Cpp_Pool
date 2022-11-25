@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: haitkadi <haitkadi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/25 16:26:14 by haitkadi          #+#    #+#             */
+/*   Updated: 2022/11/25 16:26:15 by haitkadi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 
@@ -29,7 +41,7 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &a){
 	if (this != &a)
 	{
 		std::cout << "Bureaucrat: Copy assignment operator called!" << std::endl;
-		this->_grade = a.getGrade();
+		*this = a;
 	}
 	return (*this);
 }

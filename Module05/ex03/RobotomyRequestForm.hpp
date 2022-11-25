@@ -16,8 +16,7 @@ public:
     RobotomyRequestForm (const std::string target);
     RobotomyRequestForm (const RobotomyRequestForm &a);
     RobotomyRequestForm & operator = (const RobotomyRequestForm &a);
-    ~RobotomyRequestForm ();
-    // overide excution method
+    ~RobotomyRequestForm (); 
     void    execute(Bureaucrat const & executor) const;
 };
 

@@ -30,3 +30,4 @@ int main(){
   cout << player.x << endl;
   cout << player.y << endl;
 }
+

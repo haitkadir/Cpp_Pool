@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ConverType.cpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: haitkadi <haitkadi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/26 21:49:42 by haitkadi          #+#    #+#             */
+/*   Updated: 2022/11/26 22:19:22 by haitkadi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ConverType.hpp"
 
 /*----------------------------------------------------------------------------*/
@@ -19,13 +31,18 @@ void    ConverType::toChar(void){
             else
                 std::cout << "char: Non displayable" << std::endl;
         }else {
-            char ch_value = static_cast<char>(std::stoi(this->_input));
-            if(std::isprint(ch_value))
-                std::cout << "char: '" << ch_value << "'" << std::endl;
+            int value = std::stoi(this->_input);
+            if (isascii(value))
+            {
+                char ch_value = static_cast<char>(value);
+                if(std::isprint(ch_value))
+                    std::cout << "char: '" << ch_value << "'" << std::endl;
+                else
+                    std::cout << "char: Non displayable" << std::endl;
+            }
             else
-                std::cout << "char: Non displayable" << std::endl;
+                std::cout << "char: Impossible" << std::endl;
         }
-        
     }
     catch(const std::exception& e)
     {

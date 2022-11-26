@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Base.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: haitkadi <haitkadi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/26 21:50:44 by haitkadi          #+#    #+#             */
+/*   Updated: 2022/11/26 22:54:51 by haitkadi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Base.hpp"
 
 /*----------------------------------------------------------------------------*/
@@ -55,7 +67,7 @@ void identify(Base* p){
 void identify(Base& p){
     try
     {
-        dynamic_cast<A&>(p);
+        (void)dynamic_cast<A&>(p);
         std::cout << "A" << std::endl;
     }
     catch(const std::exception& e)
@@ -66,7 +78,7 @@ void identify(Base& p){
     // ------------B--------------------------
     try
     {
-        dynamic_cast<B&>(p);
+        (void)dynamic_cast<B&>(p);
         std::cout << "B" << std::endl;
     }
     catch(const std::exception& e)
@@ -77,12 +89,11 @@ void identify(Base& p){
     // ------------C--------------------------
     try
     {
-        dynamic_cast<C&>(p);
+        (void)dynamic_cast<C&>(p);
         std::cout << "C" << std::endl;
     }
     catch(const std::exception& e)
     {
         // std::cerr << e.what() << '\n';
     }
-    
 }

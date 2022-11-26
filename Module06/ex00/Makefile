@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: haitkadi <haitkadi@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/11/26 21:50:22 by haitkadi          #+#    #+#              #
+#    Updated: 2022/11/26 23:00:50 by haitkadi         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 .PHONY: all clean fclean re
 
 CC = c++
@@ -6,7 +18,7 @@ CFLAGS = -Wall -Wextra -Werror
 
 CPP_VERSION = -std=c++98
 
-NAME = convertype
+NAME = convert
 
 
 SRCS = main.cpp ConverType.cpp

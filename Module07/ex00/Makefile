@@ -1,10 +1,22 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: haitkadi <haitkadi@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/11/27 23:11:47 by haitkadi          #+#    #+#              #
+#    Updated: 2022/11/27 23:11:48 by haitkadi         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 .PHONY: all clean fclean re
 
 CC = c++
 
 CFLAGS = -Wall -Wextra -Werror
 
-# CPP_VERSION = -std=c++98
+CPP_VERSION = -std=c++98
 
 NAME = temlates
 

@@ -2,7 +2,7 @@
 
 int main(int ac, char **av){
     if (ac != 2){
-        std::cout << "Usage: " << av[0] << " <input.txt>" << std::endl;
+        std::cout << "Usage: " << av[0] << " <input_file>" << std::endl;
         return 1;
     }
   try {
@@ -11,7 +11,7 @@ int main(int ac, char **av){
     btc.open_read_input(av[1]);
 
   } catch (std::exception& e) {
-    std::cout << "Error: " << e.what() << std::endl;
+    std::cout << "Error: Exception: " << e.what() << std::endl;
   }
     return 0;
 }

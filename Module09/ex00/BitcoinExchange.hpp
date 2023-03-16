@@ -7,14 +7,18 @@
 #include <map>
 #include <exception>
 
-class BitcoinExchange{
+class BitcoinExchange {
 private:
-    std::multimap<std::string, std::string> db;
+    std::map<std::string, std::string> db;
     bool    is_digits(const std::string &str);
-    bool    is_key_value_valid(std::string &key, std::string &val);
+    bool    is_intOrDouble(const std::string &str);
+    bool    is_key_value_valid(std::string &key, std::string &val, std::string &line);
+    void    stringTrim(std::string &str, const char *to_trim);
     void    calc_print(std::string &key, std::string &rate);
 public:
     BitcoinExchange ();
+    BitcoinExchange (const BitcoinExchange &a);
+    BitcoinExchange & operator = (const BitcoinExchange &a);
     ~BitcoinExchange ();
     void    open_read_db(const char *db_file_name);
     void    open_read_input(const char *input_file_name);

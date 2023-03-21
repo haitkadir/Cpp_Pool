@@ -1,4 +1,5 @@
 #include "PmergeMe.hpp"
+#include "DPmergeMe.hpp"
 
 int main(int ac, char **av){
     if (ac < 2){
@@ -6,9 +7,14 @@ int main(int ac, char **av){
         return 0;
     }
     try{
+        
         PmergeMe pmer;
         pmer.parseInput(av);
         pmer.fillAndSort();
+
+        DPmergeMe dpmer;
+        dpmer.parseInput(av);
+        dpmer.fillAndSort();
     } catch(std::exception const &e){
         std::cerr << "Exception: " << e.what() << '\n';
         return 1;

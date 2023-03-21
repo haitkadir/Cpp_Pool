@@ -1,0 +1,17 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "(lldb) Attach",
+            "type": "cppdbg",
+            "request": "attach",
+            "program": "/Users/haitkadi/Desktop/Cpp_Pool/Module09/ex02/PmergeMe",
+            "MIMode": "lldb",
+            "args": ["5", "2", "3", "9", "10", "11", "22", "4"]
+        }
+
+    ]
+}

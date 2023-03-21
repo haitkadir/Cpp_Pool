@@ -61,13 +61,13 @@ bool    BitcoinExchange::is_key_value_valid(std::string &key, std::string &val, 
     //++++++++++++++++++++ check MONTH +++++++++++++++++++
     std::getline(ss, tmp, '-');
     if (is_intOrDouble(tmp)){
-        intval = stoi(tmp);
+        intval = std::atoi(tmp.c_str());
         if (tmp.empty() || tmp.length() != 2 || !is_digits(tmp) || intval < 1  || intval > 12)
             invalid_input = true;
         tmp.clear();
         //++++++++++++++++++++ check DAY +++++++++++++++++++
         std::getline(ss, tmp, ' ');
-        intval = stoi(tmp);
+        intval = std::atoi(tmp.c_str());
         if (tmp.empty() || tmp.length() != 2 || !is_digits(tmp) || intval < 1  || intval > 31)
             invalid_input = true;
     }else
@@ -81,7 +81,7 @@ bool    BitcoinExchange::is_key_value_valid(std::string &key, std::string &val, 
         std::cout << "Error: bad input => " << line << std::endl;
         return false;
     }
-    double  rate = stod(val);
+    double  rate = std::atof(val.c_str());
     if(rate > 1000){
         std::cout << "Error: too large a number." << std::endl;
         return false;
@@ -124,14 +124,14 @@ void    BitcoinExchange::calc_print(std::string &key, std::string &rate){
     std::map<std::string, std::string>::iterator it;
     double exchange;
     if (this->db.count(key))
-        exchange = stod(this->db.at(key));
+        exchange = std::atof(this->db.at(key).c_str());
     else{
         it = this->db.lower_bound(key);
         if (it != this->db.begin())
             --it;
-        exchange = stod(it->second);
+        exchange = std::atof(it->second.c_str());
     }
-    double d_rate = stod(rate);
+    double d_rate = std::atof(rate.c_str());
     std::cout << key << " => " << d_rate  << " = " << d_rate * exchange << std::endl;
 }
 

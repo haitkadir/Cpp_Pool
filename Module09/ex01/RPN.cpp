@@ -51,7 +51,7 @@ bool    RPN::check_calc(std::string &str){
         if (token.length() != 1  || token.find_first_not_of("+-/*0123456789") != std::string::npos)
             return false;
         if (std::string::npos != token.find_first_of("0123456789"))
-            this->_rpn.push(stod(token));
+            this->_rpn.push(std::atof(token.c_str()));
         else if (std::string::npos != token.find_first_of("-+/*")){
             if (this->_rpn.size() > 1)
                 clac(token[0]);

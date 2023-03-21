@@ -2,14 +2,14 @@
 
 CC = c++
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 CPP_VERSION = -std=c++98
 
 NAME = PmergeMe
 
 
-SRCS = main.cpp PmergeMe.cpp
+SRCS = main.cpp PmergeMe.cpp DPmergeMe.cpp
 
 HEADERS = PmergeMe.hpp
 

@@ -1,30 +1,30 @@
-#include "PmergeMe.hpp"
+#include "DPmergeMe.hpp"
 
 /*----------------------------- Canonica Form ---------------------------------*/
-PmergeMe::PmergeMe () {}
+DPmergeMe::DPmergeMe () {}
 
-PmergeMe::PmergeMe (const PmergeMe &a){
+DPmergeMe::DPmergeMe (const DPmergeMe &a){
     *this = a;
 }
 
-PmergeMe & PmergeMe::operator = (const PmergeMe &a){
+DPmergeMe & DPmergeMe::operator = (const DPmergeMe &a){
     if (this != &a)
         *this = a;
     return *this;
 }
 
-PmergeMe::~PmergeMe () {}
+DPmergeMe::~DPmergeMe () {}
 /*--------------------------------- end --------------------------------------*/
 
 
 /*-------------------------------- Parsing ----------------------------------*/
 
-void    PmergeMe::stringTrim(std::string &str, const char *to_trim){
+void    DPmergeMe::stringTrim(std::string &str, const char *to_trim){
     str.erase(0, str.find_first_not_of(to_trim));                                                                                               
     str.erase(str.find_last_not_of(to_trim)+1);
 }
 
-bool    PmergeMe::is_digits(std::string &str){
+bool    DPmergeMe::is_digits(std::string &str){
     std::string::iterator it = str.begin();
     while(it != str.end() && std::isspace(*it)) it++;
     if ((*it == '-' || *it == '+') && !std::isdigit(*(it + 1))) return false;
@@ -36,12 +36,12 @@ bool    PmergeMe::is_digits(std::string &str){
     return true;
 }
 
-void    PmergeMe::print_exit(std::string err){
+void    DPmergeMe::print_exit(std::string err){
         std::cout << err << std::endl;
         exit(0);
 }
 
-void    PmergeMe::parseInput(char **av){
+void    DPmergeMe::parseInput(char **av){
     int j;
     int i = 1;
     std::string str;
@@ -65,17 +65,17 @@ void    PmergeMe::parseInput(char **av){
 }
 
 
-bool PmergeMe::is_duplicate( const std::vector<int>& nums ) {
-    for( std::vector<int>::const_iterator i = nums.begin(); i != nums.end(); ++i )
-        for( std::vector<int>::const_iterator j = i+1; j != nums.end(); ++j)
+bool DPmergeMe::is_duplicate( const std::deque<int>& nums ) {
+    for( std::deque<int>::const_iterator i = nums.begin(); i != nums.end(); ++i )
+        for( std::deque<int>::const_iterator j = i+1; j != nums.end(); ++j)
             if( *i == *j ) return true;
     return false;
 }
-/*------------------------------ Sorting vector ------------------------------*/
+/*------------------------------ Sorting deque ------------------------------*/
 
-void    PmergeMe::insertionSort(std::vector<int> &array){
-    std::vector<int>::iterator  i = array.begin() + 1;
-    std::vector<int>::iterator  j;
+void    DPmergeMe::insertionSort(std::deque<int> &array){
+    std::deque<int>::iterator  i = array.begin() + 1;
+    std::deque<int>::iterator  j;
     for(; i != array.end(); ++i){
         j = i;
         while( j > array.begin() && *(j - 1) > *j){
@@ -86,9 +86,9 @@ void    PmergeMe::insertionSort(std::vector<int> &array){
 }
 
 
-void    PmergeMe::merge(std::vector<int> &both, std::vector<int> &left, std::vector<int> &right){
-    std::vector<int>::iterator left_it = left.begin();
-    std::vector<int>::iterator right_it = right.begin();
+void    DPmergeMe::merge(std::deque<int> &both, std::deque<int> &left, std::deque<int> &right){
+    std::deque<int>::iterator left_it = left.begin();
+    std::deque<int>::iterator right_it = right.begin();
     both.clear();
     while(left_it != left.end() && right_it != right.end()){
         if(*left_it > *right_it){
@@ -109,11 +109,14 @@ void    PmergeMe::merge(std::vector<int> &both, std::vector<int> &left, std::vec
     }
 }
 
-std::vector<int>    PmergeMe::mergesort(std::vector<int> array, std::size_t threshold) {
+
+std::deque<int>    DPmergeMe::mergesort(std::deque<int> array, std::size_t threshold) {
     if (array.size() > threshold){
+        if (array.size() == 1)
+            return array;
         int middle = array.size() / 2;
-        std::vector<int> left(array.begin(), array.begin() + middle);
-        std::vector<int> right(array.begin() + middle, array.end());
+        std::deque<int> left(array.begin(), array.begin() + middle);
+        std::deque<int> right(array.begin() + middle, array.end());
         if (middle > 1){
             left = mergesort(left, threshold);
             right = mergesort(right, threshold);
@@ -124,8 +127,8 @@ std::vector<int>    PmergeMe::mergesort(std::vector<int> array, std::size_t thre
     return array;
 }
 
-void    PmergeMe::fillAndSort(){
-    std::vector<int>    unsorted;
+void    DPmergeMe::fillAndSort(){
+    std::deque<int>    unsorted;
     std::string token;
     long    int_token;
     while (std::getline(this->_unsorted, token, ' ')){
@@ -138,13 +141,20 @@ void    PmergeMe::fillAndSort(){
     if(is_duplicate(unsorted))
         print_exit("Error: duplicate number found.");
     std::cout << "Before: ";
-    std::vector<int>::iterator it = unsorted.begin();
+    std::deque<int>::iterator it = unsorted.begin();
     while (it != unsorted.end()){
         std::cout << " " << *it;
         it++;
     }
-    this->_sorted = mergesort(unsorted, 5);
-
+    std::cout << std::endl;
+    std::deque<int>    sorted = mergesort(unsorted, 1);
+    std::cout << "After:  ";
+    std::deque<int>::iterator it1 = sorted.begin();
+    while (it1!= sorted.end()){
+        std::cout << " " << *it1;
+        it1++;
+    }
+    std::cout << std::endl;
 }
 
 

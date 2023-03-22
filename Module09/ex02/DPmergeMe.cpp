@@ -61,7 +61,7 @@ void    DPmergeMe::parseInput(char **av){
         token.clear(); 
         i++;
     }
-    this->_unsorted << str;
+    this->_sunsorted << str;
 }
 
 
@@ -131,7 +131,7 @@ void    DPmergeMe::fillAndSort(){
     std::deque<int>    unsorted;
     std::string token;
     long    int_token;
-    while (std::getline(this->_unsorted, token, ' ')){
+    while (std::getline(this->_sunsorted, token, ' ')){
         int_token = std::atol(token.c_str());
         if (int_token < 0 || int_token > INT_MAX)
             print_exit("Error: Out of range: " + token);
@@ -140,23 +140,30 @@ void    DPmergeMe::fillAndSort(){
     }
     if(is_duplicate(unsorted))
         print_exit("Error: duplicate number found.");
-    std::cout << "Before: ";
-    std::deque<int>::iterator it = unsorted.begin();
-    while (it != unsorted.end()){
-        std::cout << " " << *it;
-        it++;
-    }
-    std::cout << std::endl;
-    std::deque<int>    sorted = mergesort(unsorted, 1);
-    std::cout << "After:  ";
-    std::deque<int>::iterator it1 = sorted.begin();
-    while (it1!= sorted.end()){
-        std::cout << " " << *it1;
-        it1++;
+    this->_unsorted = unsorted;
+    this->_sorted = mergesort(unsorted, 15);
+}
+
+
+void    DPmergeMe::print_unsorted(){
+    std::deque<int>::const_iterator i = this->_unsorted.begin();
+    std::cout << "before: ";
+    while(i != this->_unsorted.end()){
+        std::cout << *i << " ";
+        i++;
     }
     std::cout << std::endl;
 }
 
+void    DPmergeMe::print_sorted(){
+    std::deque<int>::const_iterator i = this->_sorted.begin();
+    std::cout << "after:  ";
+    while(i != this->_sorted.end()){
+        std::cout << *i << " ";
+        i++;
+    }
+    std::cout << std::endl;
+}
 
 /*--------------------------------- end --------------------------------------*/
 

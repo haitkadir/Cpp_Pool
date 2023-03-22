@@ -6,7 +6,9 @@
 
 class DPmergeMe{
 private:
-    std::stringstream   _unsorted;
+    std::stringstream   _sunsorted;
+    std::deque<int>     _unsorted;
+    std::deque<int>     _sorted;
     void    stringTrim(std::string &str, const char *to_trim);
     bool    is_digits(std::string &str);
     void    print_exit(std::string err);
@@ -23,6 +25,8 @@ public:
     void    insertionSort(std::deque<int> &array);
     void    merge(std::deque<int> &both, std::deque<int> &left, std::deque<int> &right);
     std::deque<int>    mergesort(std::deque<int> array, std::size_t threshold);
+    void    print_unsorted();
+    void    print_sorted();
 };
 
 #endif

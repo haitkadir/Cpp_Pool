@@ -61,7 +61,7 @@ void    PmergeMe::parseInput(char **av){
         token.clear(); 
         i++;
     }
-    this->_unsorted << str;
+    this->_sunsorted << str;
 }
 
 
@@ -128,7 +128,7 @@ void    PmergeMe::fillAndSort(){
     std::vector<int>    unsorted;
     std::string token;
     long    int_token;
-    while (std::getline(this->_unsorted, token, ' ')){
+    while (std::getline(this->_sunsorted, token, ' ')){
         int_token = std::atol(token.c_str());
         if (int_token < 0 || int_token > INT_MAX)
             print_exit("Error: Out of range: " + token);
@@ -137,17 +137,29 @@ void    PmergeMe::fillAndSort(){
     }
     if(is_duplicate(unsorted))
         print_exit("Error: duplicate number found.");
-    std::cout << "Before: ";
-    std::vector<int>::iterator it = unsorted.begin();
-    while (it != unsorted.end()){
-        std::cout << " " << *it;
-        it++;
-    }
-    this->_sorted = mergesort(unsorted, 5);
-
+    this->_unsorted = unsorted;
+    this->_sorted = mergesort(unsorted, 20);
 }
 
 
+void    PmergeMe::print_unsorted(){
+    std::vector<int>::const_iterator i = this->_unsorted.begin();
+    std::cout << "before: ";
+    while(i != this->_unsorted.end()){
+        std::cout << *i << " ";
+        i++;
+    }
+    std::cout << std::endl;
+}
+
+void    PmergeMe::print_sorted(){
+    std::vector<int>::const_iterator i = this->_sorted.begin();
+    std::cout << "before: ";
+    while(i != this->_sorted.end()){
+        std::cout << *i << " ";
+        i++;
+    }
+    std::cout << std::endl;
+}
+
 /*--------------------------------- end --------------------------------------*/
-
-

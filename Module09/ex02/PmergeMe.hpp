@@ -6,7 +6,8 @@
 
 class PmergeMe{
 private:
-    std::stringstream   _unsorted;
+    std::stringstream   _sunsorted;
+    std::vector<int> _unsorted;
     std::vector<int>   _sorted;
     void    stringTrim(std::string &str, const char *to_trim);
     bool    is_digits(std::string &str);
@@ -24,6 +25,8 @@ public:
     void    insertionSort(std::vector<int> &array);  
     void    merge(std::vector<int> &both, std::vector<int> &left, std::vector<int> &right);
     std::vector<int>     mergesort(std::vector<int> array, std::size_t threshold);
+    void    print_unsorted();
+    void    print_sorted();
 };
 
 #endif

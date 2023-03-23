@@ -136,6 +136,25 @@ void    BitcoinExchange::calc_print(std::string &key, std::string &rate){
 }
 
 /*----------------------------------------------------------------------------*/
+bool BitcoinExchange::check_first_line(std::string &line){
+    if (line.empty()) return false;
+    std::string key = "date";
+    std::string val = "value";
+    std::string token;
+    std::stringstream ss(line);
+    bool is_first_line = true;
+    while(std::getline(ss, token, '|')){
+        this->stringTrim(token, " ");
+        if (is_first_line && (token.find(key) == std::string::npos || token.size() != key.size()))
+            return false;
+        else if (!is_first_line && (token.find(val) == std::string::npos || token.size() != val.size()))
+            return false;
+        is_first_line = false;
+    }
+    return true;
+}
+
+
 void    BitcoinExchange::open_read_input(const char *input_file_name){
     std::fstream file(input_file_name, std::ios::in);
 
@@ -147,7 +166,10 @@ void    BitcoinExchange::open_read_input(const char *input_file_name){
     std::string key, rate;
     int i = 0;
     while(std::getline(file, line)){
-        if (i != 0){
+        if (!i && !check_first_line(line)){
+            std::cout << "BitcoinExchange:: File format not valid!" << std::endl;
+            exit(0);
+        } else if (i != 0){
             std::stringstream ss(line);
             std::getline(ss, key, '|');
             std::getline(ss, rate, '|');

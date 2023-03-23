@@ -10,6 +10,7 @@
 class BitcoinExchange {
 private:
     std::map<std::string, std::string> db;
+    bool    check_first_line(std::string &line);
     bool    is_digits(const std::string &str);
     bool    is_intOrDouble(const std::string &str);
     bool    is_key_value_valid(std::string &key, std::string &val, std::string &line);

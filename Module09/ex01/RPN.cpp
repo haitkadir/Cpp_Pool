@@ -42,22 +42,27 @@ void    RPN::clac(char c){
 }
 
 bool    RPN::check_calc(std::string &str){
-    std::stringstream ss(str);
-    std::string    token;
-    while(std::getline(ss, token, ' ')){
-        stringTrim(token, " \t\n\v\f\r");
-        if (token.empty())
+    std::string::iterator i = str.begin();
+    while(i != str.end()){
+        if (*i == ' '){
+            i++;
             continue;
-        if (token.length() != 1  || token.find_first_not_of("+-/*0123456789") != std::string::npos)
+        }
+        if (i != str.end() && (std::isdigit(*i) &&  std::isdigit(*(i + 1))))
             return false;
-        if (std::string::npos != token.find_first_of("0123456789"))
-            this->_rpn.push(std::atof(token.c_str()));
-        else if (std::string::npos != token.find_first_of("-+/*")){
+        else if (std::isdigit(*i))
+        {
+            std::string tmp(1, *i);
+            this->_rpn.push(std::atoi(tmp.c_str()));
+        } else if (*i == '+' || *i == '-' || *i == '/' || *i == '*'){
             if (this->_rpn.size() > 1)
-                clac(token[0]);
+                clac(*i);
             else
                 return false;
         }
+        else
+            return false;
+        i++;
     }
     return true;
 }
